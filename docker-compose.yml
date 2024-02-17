@@ -1,5 +1,18 @@
 services:
+  speech_therapy_gateway:
+    profiles: ["all","gateway"]
+    image: docker.io/library/nginx:latest
+    # image: speech_therapy_server:latest
+    container_name: speech_therapy_gateway
+    ports:
+       - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - speech_therapy
+
   speech_therapy_web:
+    profiles: ["all","frontend"]
     image: ghcr.io/homeshw/speech_therapy_web:latest
     # image: speech_therapy_web:latest
     container_name: speech_therapy_web
@@ -12,6 +25,7 @@ services:
       - speech_therapy
 
   speech_therapy_server:
+    profiles: ["all","backend"]
     image: ghcr.io/homeshw/speech_therapy_server:latest
     # image: speech_therapy_server:latest
     container_name: speech_therapy_server
