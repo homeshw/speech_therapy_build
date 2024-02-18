@@ -2,4 +2,9 @@
 
 rename config.json.template to config.json
 
-docker compose up
+run /certificates/generate_selfsigned_certs.sh. When asked for domain name, enter IP address. For all other qusetions enter '.'
+
+In config.js 
+REACT_APP_API_ENDPOINT:'https://SERVER_IP'
+
+docker compose --profile all up -d

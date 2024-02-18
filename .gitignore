@@ -1,2 +1,5 @@
 /audio_files/*.mp3
 config.json
+/certificates/*.crt
+/certificates/*.csr
+/certificates/*.key
