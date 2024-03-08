@@ -5,4 +5,4 @@ run /certificates/generate_selfsigned_certs.sh. When asked for domain name, ente
 In config.js 
 REACT_APP_API_ENDPOINT:'https://SERVER_IP'
 
-docker compose --profile all up -d
+docker compose --profile all --env-file .env up -d

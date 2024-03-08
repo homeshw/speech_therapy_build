@@ -59,6 +59,8 @@ services:
       MONGO_INITDB_DATABASE: audioclips
     volumes:
       - mongo_data:/data/db
+    networks:
+      - speech_therapy
 
   mongo-express:
     profiles: ["all","database"]
@@ -74,6 +76,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: password
+    networks:
+      - speech_therapy
 
 volumes:
   mongo_data:
